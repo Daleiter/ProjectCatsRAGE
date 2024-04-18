@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+<style >
+body{
+background: none;
+}
+.glow-on-hover {
+		margin:10px;
+		padding:5px;
+        border: none;
+        outline: none;
+        color: #fff;
+        background: #111;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;
+    }
+
+        .glow-on-hover:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        
+
+           
+
+        .glow-on-hover:before {
+            opacity: 1;
+        }
+
+        .glow-on-hover:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+    @keyframes glowing {
+        0% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 400% 0;
+        }
+
+        100% {
+            background-position: 0 0;
+        }
+    }
+	.centered {
+      position: fixed;
+      top: 44%;
+      left: 13%;
+      transform: translate(-50%, -50%);
+	  height: 80%;
+	  width: 25%;
+    }
+	.centered table {
+      width: 100%; /* Таблиця займе всю ширину батьківського елементу */
+    }
+	.color{
+	height:10px;
+	width:10px;
+	background-color:#c00e1a;
+	}
+</style>
+</head>
+
+<body>
+	<div class="glow-on-hover centered">
+		<span id="CarValue"></span>
+        <button onclick="Minus()">-</button>
+		<button onclick="Add()">+</button>
+		<button onclick="Buy()">Buy</button>
+		<button onclick="Exit()">Exit</button>
+		<div class="colorpalete">
+		<div id="table-container" style="display: flex; flex-wrap: wrap;"></div>
+		</div>
+	</div>
+<script>
+var vehicleHashes = ['exemplar', 'windsor2', 'sentinel2', 'khanjali', 'oppressor2', 'formula', 'dubsta', 'cognoscenti'];
+var colors =
+[
+[0,	'Metallic Black',	'#0d1116'],
+[1,	'Metallic Graphite Black',	'#1c1d21'],
+[2, 'Metallic Black Steal', '#32383d'],
+[3, 'Metallic Dark Silver', '#454b4f'],
+[4, 'Metallic Silver', '#999da0'],
+[5, 'Metallic Blue Silver', '#c2c4c6'],
+[6, 'Metallic Steel Gray', '#979a97'],
+[7, 'Metallic Shadow Silver', '#637380'],
+[8, 'Metallic Stone Silver', '#63625c'],
+[9, 'Metallic Midnight Silver', '#3c3f47'],
+[10, 'Metallic Gun Metal', '#444e54'],
+[11, 'Metallic Anthracite Grey', '#1d2129'],
+[12, 'Matte Black', '#13181f'],
+[13, 'Matte Gray', '#26282a'],
+[14, 'Matte Light Grey', '#515554'],
+[15, 'Util Black', '#151921'],
+[16, 'Util Black Poly', '#1e2429'],
+[17, 'Util Dark silver', '#333a3c'],
+[18, 'Util Silver', '#8c9095'],
+[19, 'Util Gun Metal', '#39434d'],
+[20, 'Util Shadow Silver', '#506272'],
+[21, 'Worn Black', '#1e232f'],
+[22, 'Worn Graphite', '#363a3f'],
+[23, 'Worn Silver Grey', '#a0a199']
+];
+function setColor1(color1) {
+		mp.trigger('changeCarColor1InCarShop',color1);
+}
+function createcolorpalete() {
+    var container = document.getElementById("table-container");
+    
+    for (var i = 0; i < colors.length; i++) {
+        var colorDiv = document.createElement("button");
+        colorDiv.style.height = "20px";
+        colorDiv.style.width = "20px";
+        colorDiv.style.backgroundColor = colors[i][2];
+        colorDiv.style.margin = "2px";
+		colorDiv.setAttribute("onclick", "setColor1("+colors[i][0]+")");
+        
+        container.appendChild(colorDiv);
+        
+        
+    }
+}
+
+var index = 0; // Початковий індекс
+updateSpan();
+createcolorpalete();
+
+
+
+function Minus() {
+    if (index > 0) { // Виправлено умову
+        index--;
+        updateSpan();
+		mp.trigger('changeCarInCarShop',vehicleHashes[index]);
+    }
+}
+
+function Add() {
+    if (index < vehicleHashes.length - 1) { // Виправлено умову та додано .length
+        index++;
+        updateSpan();
+		mp.trigger('changeCarInCarShop',vehicleHashes[index]);
+    }
+}
+function Buy() {
+        mp.trigger('buyCar',vehicleHashes[index]);
+        mp.trigger('closeSalon');
+}
+function updateSpan() {
+    var drawableElement = document.getElementById("CarValue");
+    drawableElement.textContent = vehicleHashes[index];
+}
+
+function Exit() {
+        mp.trigger('closeSalon');
+}
+</script>
+</body>                  
+
+</html>

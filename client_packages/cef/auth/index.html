@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+<style >
+       /* body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #131416;
+            color: white;
+        } */
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #131416;
+            color: white;
+			user-select: none;
+            
+            /* width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background: #000; */
+        }
+
+        .glow-on-hover {
+            width: 220px;
+            height: 50px;
+            border: none;
+            outline: none;
+            color: #fff;
+            background: #111;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+        }
+
+        .glow-on-hover:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left:-2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        .glow-on-hover:active {
+            color: #000
+        }
+
+        .glow-on-hover:active:after {
+            background: transparent;
+        }
+
+        .glow-on-hover:hover:before {
+            opacity: 1;
+        }
+
+        .glow-on-hover:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        @keyframes glowing {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+
+
+        div.container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: stretch;
+            height: 100vh;
+        }
+
+        div.column {
+			display:none;
+            flex: 1;
+            margin: 20px;
+            padding: 20px;
+            height: max-content;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #111;
+            color: white;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+        div.serverlist {
+    position: relative;
+}
+
+img.serverlistphoto {
+    position: absolute;
+    top: -40px;
+    right: -20px;
+    height: 100px;
+}
+
+div.lk {
+    position: relative;
+}
+
+img.lkphoto {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    height: 80px;
+}
+div.downl {
+    position: relative;
+}
+
+img.downlphoto {
+    transform: rotate(25deg);
+    position: absolute;
+    top: -30px;
+    right: 0px;
+    height: 100px;
+}
+        * {
+  box-sizing: border-box;
+}
+
+.input-group__input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  max-width: 20em;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  color: #fff;
+  line-height: 1;
+  border-style: none;
+  outline: none;
+  height: calc(1em + 1.6em + 0.5em);
+  width: 100%;
+  padding: 0.8em 1em;
+  border: 0.25em solid transparent;
+  background-image: linear-gradient(#000, #000), linear-gradient(120deg, #f09 0%, #0ff 50%, #9f0 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 1.8em;
+  background-size: 200% 100%;
+  transition: background-position 0.8s ease-out;
+}
+.input-group__input:hover {
+  background-position: 100% 0;
+}
+       
+.texthider{
+  font-size: 30px;
+}        
+.centeritems{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+.marginleft{
+  margin-left: 15px;
+}
+.marginright{
+  margin-right: 15px;
+}
+
+@use postcss-preset-env {
+  stage: 0;
+}
+
+:root {
+  --color-background: #000119;
+  --stroke-width: calc(1em / 16);
+  --font-size: 10vmin;
+  --font-weight: 70;
+  --letter-spacing: calc(1em / 8);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  font-family: Poppins, sans-serif;
+  margin: 0;
+  min-block-size: 100vh;
+  place-items: center;
+  padding: 5vmin;
+}
+
+h1 {
+  background-clip: text;
+  background-image: linear-gradient(to right, #09f1b8, #00a2ff, #ff00d2, #fed90f);
+  color: var(--color-background);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  letter-spacing: var(--letter-spacing);
+  padding: calc(--stroke-width / 2);
+  -webkit-text-stroke-color: transparent;
+  -webkit-text-stroke-width: var(--stroke-width);
+}
+
+.input-container{
+  margin-top:10px;
+}
+.failedlogin{
+  display: none;
+  font-size: 15px;
+  color: red;
+} 
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.1; }
+  100% { opacity: 1; }
+}
+
+.blinking-text {
+  animation: blink 2s infinite; /* 2 секунди (1 секунда прозорості + 1 секунда повернення до 100% видимості) */
+}  
+</style>
+</head>
+
+<body onclick="setChangeLogo()">
+<figure class="logodiv">
+  <img src="logo.webp" alt="Опис зображення">
+  <figcaption class="blinking-text texthider">Нажмите ЛКМ что бы продолжить</figcaption>
+</figure>
+    <div class="column centeritems">
+		<div class="marginleft marginright">
+      <span class="texthider">Добро пожаловать! <br>Введите данные от аккаунта </span>
+      <span class="textfailedlogin failedlogin">Не верные данные от аккаунта </span>
+        <div class="input-container ">
+          <input id="loginInput" class="input-group__input marginleft" type="text" placeholder="Логин"/>
+          <div class="cut"></div>
+          
+        </div>
+        <div class="input-container ">
+          <input id="passwordInput" class="input-group__input marginleft" type="password" placeholder="Пароль" />
+          <div class="cut"></div>
+          
+        </div>
+        <div class="input-container ">
+    
+          <div class="cut cut-short"></div>
+        
+        </div>
+        <button type="text" class="glow-on-hover marginleft" onclick="closeAuth()">Подтвердить</button>
+      </div>
+	  </div>
+<script>
+var ispasswordhash = 0;
+var passhash = 0;
+document.addEventListener('AutoAuth', function(event) {
+    var name = event.detail.name;
+    passhash = event.detail.passhash;
+    var loginInput = document.getElementById('loginInput');
+    var passwordInput = document.getElementById('passwordInput');
+    if (loginInput && passwordInput) {
+            loginInput.value = name;
+            passwordInput.value = passhash;
+			ispasswordhash = 1;
+			}
+});
+	document.addEventListener('FailedAuth', function() {
+        var failedlogin = document.querySelector('.failedlogin');
+        failedlogin.style.display = 'flex';
+	});
+	 function setChangeLogo() {
+        var changeLogo = document.querySelector('.logodiv');
+        changeLogo.style.display = 'none';
+        var changeLogin = document.querySelector('.column');
+        changeLogin.style.display = 'flex';
+    }
+	function closeAuth() {
+		var login = document.getElementById('loginInput').value;
+		var password = document.getElementById('passwordInput').value;
+		if (passhash != password)
+		{ispasswordhash = 0;}
+        mp.trigger('closeAuth', login, password, ispasswordhash);
+		}
+    </script>
+</body>                  
+
+</html>

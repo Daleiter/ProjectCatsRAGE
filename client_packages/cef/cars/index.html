@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+<style >
+body{
+background: none;
+    user-select: none;
+}
+.glow-on-hover {
+		margin:10px;
+		padding:5px;
+        border: none;
+        outline: none;
+        color: #fff;
+        background: #111;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;
+    }
+
+        .glow-on-hover:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        
+
+           
+
+        .glow-on-hover:before {
+            opacity: 1;
+        }
+
+        .glow-on-hover:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+    @keyframes glowing {
+        0% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 400% 0;
+        }
+
+        100% {
+            background-position: 0 0;
+        }
+    }
+	.centered {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+	  height: 500px;
+	  width: 1000px;
+    }
+	.centered table {
+      width: 100%; /* Таблиця займе всю ширину батьківського елементу */
+    }
+</style>
+</head>
+
+<body>
+	<div class="glow-on-hover centered">
+	<div id="table-container"></div>
+	</div>
+<script>
+document.addEventListener('SendCarListToHUD', function(event) {
+    var jsonData = event.detail.carlist;
+	var data = JSON.parse(jsonData);
+
+	createTable(data);
+});
+
+    // Функція для створення HTML-таблиці з JSON-даними '2','1','deluxo','2','2','test'
+    function createTable(data) {
+        var html = "<table border='1'><thead><tr>";
+
+    // Отримання заголовків стовбців з першого об'єкта у масиві JSON-даних
+    for (var key in data[0]) {
+        html += "<th>" + key + "</th>";
+    }
+    html += "<th>Спаун</th></tr></thead><tbody>";
+
+    // Додавання рядків з даними у таблицю
+    for (var i = 0; i < data.length; i++) {
+        var funbtn = "";
+        html += "<tr>";
+        for (var key in data[i]) {
+            funbtn += "'" + data[i][key] + "',";
+            html += "<td>" + data[i][key] + "</td>";
+        }
+        funbtn = funbtn.slice(0, -1);
+        html += '<td><button onclick="spawnCar('+funbtn+')">Де/Спаун</button></td>'; // Кнопка "Спаун"
+        html += "</tr>";
+    }
+    html += "</tbody></table>";
+
+        // Вставка HTML-коду таблиці у контейнер на сторінці
+        document.getElementById("table-container").innerHTML = html;
+    }
+
+    // Виклик функції для створення таблиці з JSON-даними
+    
+	
+    function spawnCar(id, ownerid, vhash, color1, color2, numperplate) {
+        mp.trigger('spawnCar', id, ownerid, vhash, color1, color2, numperplate);
+    }
+</script>
+</body>                  
+
+</html>

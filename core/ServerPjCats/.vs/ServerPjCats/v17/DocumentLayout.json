@@ -1,0 +1,130 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\RAGEMP\\server-files\\core\\ServerPjCats\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0DC3D730-6A16-4E7E-8AA6-6EC53F23E912}|..\\..\\client_packages\\cs_packages\\ClientPjCats\\ClientPjCats.csproj|c:\\ragemp\\server-files\\client_packages\\cs_packages\\clientpjcats\\jobs\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A489AB87-0970-4E8A-9C3E-3CF8746AE08C}|ServerPjCats\\ServerPjCats.csproj|c:\\ragemp\\server-files\\core\\serverpjcats\\serverpjcats\\waypoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A489AB87-0970-4E8A-9C3E-3CF8746AE08C}|ServerPjCats\\ServerPjCats.csproj|solutionrelative:serverpjcats\\waypoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A489AB87-0970-4E8A-9C3E-3CF8746AE08C}|ServerPjCats\\ServerPjCats.csproj|c:\\ragemp\\server-files\\core\\serverpjcats\\serverpjcats\\jobs\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A489AB87-0970-4E8A-9C3E-3CF8746AE08C}|ServerPjCats\\ServerPjCats.csproj|solutionrelative:serverpjcats\\jobs\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A489AB87-0970-4E8A-9C3E-3CF8746AE08C}|ServerPjCats\\ServerPjCats.csproj|c:\\ragemp\\server-files\\core\\serverpjcats\\serverpjcats\\cars.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A489AB87-0970-4E8A-9C3E-3CF8746AE08C}|ServerPjCats\\ServerPjCats.csproj|solutionrelative:serverpjcats\\cars.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A489AB87-0970-4E8A-9C3E-3CF8746AE08C}|ServerPjCats\\ServerPjCats.csproj|c:\\ragemp\\server-files\\core\\serverpjcats\\serverpjcats\\remoteevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A489AB87-0970-4E8A-9C3E-3CF8746AE08C}|ServerPjCats\\ServerPjCats.csproj|solutionrelative:serverpjcats\\remoteevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DC3D730-6A16-4E7E-8AA6-6EC53F23E912}|..\\..\\client_packages\\cs_packages\\ClientPjCats\\ClientPjCats.csproj|c:\\ragemp\\server-files\\client_packages\\cs_packages\\clientpjcats\\cars.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DC3D730-6A16-4E7E-8AA6-6EC53F23E912}|..\\..\\client_packages\\cs_packages\\ClientPjCats\\ClientPjCats.csproj|c:\\ragemp\\server-files\\client_packages\\cs_packages\\clientpjcats\\events\\cefevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Waypoints.cs",
+              "DocumentMoniker": "C:\\RAGEMP\\server-files\\core\\ServerPjCats\\ServerPjCats\\Waypoints.cs",
+              "RelativeDocumentMoniker": "ServerPjCats\\Waypoints.cs",
+              "ToolTip": "C:\\RAGEMP\\server-files\\core\\ServerPjCats\\ServerPjCats\\Waypoints.cs",
+              "RelativeToolTip": "ServerPjCats\\Waypoints.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwCUAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T14:21:54.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Cars.cs",
+              "DocumentMoniker": "C:\\RAGEMP\\server-files\\core\\ServerPjCats\\ServerPjCats\\Cars.cs",
+              "RelativeDocumentMoniker": "ServerPjCats\\Cars.cs",
+              "ToolTip": "C:\\RAGEMP\\server-files\\core\\ServerPjCats\\ServerPjCats\\Cars.cs",
+              "RelativeToolTip": "ServerPjCats\\Cars.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAwwGcAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T13:22:53.593Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Delivery.cs",
+              "DocumentMoniker": "C:\\RAGEMP\\server-files\\core\\ServerPjCats\\ServerPjCats\\Jobs\\Delivery.cs",
+              "RelativeDocumentMoniker": "ServerPjCats\\Jobs\\Delivery.cs",
+              "ToolTip": "C:\\RAGEMP\\server-files\\core\\ServerPjCats\\ServerPjCats\\Jobs\\Delivery.cs",
+              "RelativeToolTip": "ServerPjCats\\Jobs\\Delivery.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAwwDEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-09T13:59:06.791Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CefEvents.cs",
+              "DocumentMoniker": "C:\\RAGEMP\\server-files\\client_packages\\cs_packages\\ClientPjCats\\Events\\CefEvents.cs",
+              "RelativeDocumentMoniker": "..\\..\\client_packages\\cs_packages\\ClientPjCats\\Events\\CefEvents.cs",
+              "ToolTip": "C:\\RAGEMP\\server-files\\client_packages\\cs_packages\\ClientPjCats\\Events\\CefEvents.cs",
+              "RelativeToolTip": "..\\..\\client_packages\\cs_packages\\ClientPjCats\\Events\\CefEvents.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T13:21:25.577Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RemoteEvents.cs",
+              "DocumentMoniker": "C:\\RAGEMP\\server-files\\core\\ServerPjCats\\ServerPjCats\\RemoteEvents.cs",
+              "RelativeDocumentMoniker": "ServerPjCats\\RemoteEvents.cs",
+              "ToolTip": "C:\\RAGEMP\\server-files\\core\\ServerPjCats\\ServerPjCats\\RemoteEvents.cs",
+              "RelativeToolTip": "ServerPjCats\\RemoteEvents.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T13:20:28.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Cars.cs",
+              "DocumentMoniker": "C:\\RAGEMP\\server-files\\client_packages\\cs_packages\\ClientPjCats\\Cars.cs",
+              "RelativeDocumentMoniker": "..\\..\\client_packages\\cs_packages\\ClientPjCats\\Cars.cs",
+              "ToolTip": "C:\\RAGEMP\\server-files\\client_packages\\cs_packages\\ClientPjCats\\Cars.cs",
+              "RelativeToolTip": "..\\..\\client_packages\\cs_packages\\ClientPjCats\\Cars.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwD0AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-09T14:03:50.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Delivery.cs",
+              "DocumentMoniker": "C:\\RAGEMP\\server-files\\client_packages\\cs_packages\\ClientPjCats\\Jobs\\Delivery.cs",
+              "RelativeDocumentMoniker": "..\\..\\client_packages\\cs_packages\\ClientPjCats\\Jobs\\Delivery.cs",
+              "ToolTip": "C:\\RAGEMP\\server-files\\client_packages\\cs_packages\\ClientPjCats\\Jobs\\Delivery.cs",
+              "RelativeToolTip": "..\\..\\client_packages\\cs_packages\\ClientPjCats\\Jobs\\Delivery.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAIAywDQAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-09T13:59:07.758Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

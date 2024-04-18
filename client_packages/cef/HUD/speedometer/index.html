@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Спідометр</title>
+<style>
+ body {
+        background: none;
+			user-select: none;
+		}
+  .container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    margin: 50px auto;
+        position: fixed;
+        bottom: 0;
+        right: 40px;
+  }
+  .arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 50% 100%;
+    transform: translate(-50%, -100%) rotate(0deg);
+    width: 4px;
+    height: 120px;
+    background-color: purple;
+    border-radius: 2px;
+    transition: transform 0.5s;
+  }
+  .speed{
+  color:purple;
+	font-size:35px;
+    position: absolute;
+    top: 70%;
+    left: 30%;
+  }
+
+        .glow-on-hover:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+			border-radius: 50%;
+            opacity: 1;
+        }
+
+        .glow-on-hover:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+    background-image: url('logo2.png');
+    background-size: cover;
+    background-position: center;
+			border-radius: 50%;
+        }
+
+    @keyframes glowing {
+        0% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 400% 0;
+        }
+
+        100% {
+            background-position: 0 0;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container glow-on-hover">
+  <div class="arrow"></div>
+  <span class="speed "></span>
+</div>
+
+<script>
+  function setSpeed(speed) {
+    const speedspan = document.querySelector('.speed');
+    speedspan.textContent = speed + ' KM/H';
+    const arrow = document.querySelector('.arrow');
+    const rotation = speed*1.4 - 150 ;
+    arrow.style.transform = `translate(-50%, -100%) rotate(${rotation}deg)`;
+  }
+document.addEventListener('SendSpeedToHUD', function(event) {
+    var speed = event.detail.speedfromclient;
+	setSpeed(speed);
+});
+  setSpeed(260);
+</script>
+
+</body>
+</html>

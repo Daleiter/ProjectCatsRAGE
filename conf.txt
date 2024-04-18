@@ -1,0 +1,16 @@
+
+{
+	"announce" : true,
+	"maxplayers" : 500,
+	"name" : "Project Cats", 
+	"bind" : "192.168.31.11",
+	"gamemode" : "RPG",
+	"language" : "ru",
+	"stream-distance" : 500.0,
+	"enable-nodejs" : false,
+	"csharp" : "enabled",
+	"port": 22005,
+	"voice-chat": true,
+	"voice-chat-sample-rate": 48000,
+	"api-threading-debugging": false
+}

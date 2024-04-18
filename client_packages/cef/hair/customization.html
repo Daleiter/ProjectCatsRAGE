@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+<style >
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #131416;
+        color: white;
+		background: none;
+    }
+
+    .glow-on-hover {
+        width: 220px;
+        height: 50px;
+        border: none;
+        outline: none;
+        color: #fff;
+        background: #111;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;
+    }
+
+        .glow-on-hover:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        .glow-on-hover:active {
+            color: #000
+        }
+
+            .glow-on-hover:active:after {
+                background: transparent;
+            }
+
+        .glow-on-hover:hover:before {
+            opacity: 1;
+        }
+
+        .glow-on-hover:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+    @keyframes glowing {
+        0% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 400% 0;
+        }
+
+        100% {
+            background-position: 0 0;
+        }
+    }
+
+
+
+    div.column {
+        flex: 1;
+        margin: 20px;
+        padding: 20px;
+        height: max-content;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background: #111;
+        color: white;
+    }
+    .centeritems {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+    }
+</style>
+</head>
+
+<body>
+    <div class="column centeritems">
+        <div>
+            <span>componentNumber</span>
+            <span id="componentNumberValue"></span>
+            <button onclick="Minusc()">-</button>
+            <button onclick="Addc()">+</button>
+        </div>
+        <div>
+            <span>drawable</span>
+            <span id="drawableValue"></span>
+            <button onclick="Minusd()">-</button>
+            <button onclick="Addd()">+</button>
+        </div>
+        <div>
+            <span>texture</span>
+            <span id="textureValue"></span>
+            <button onclick="Minust()">-</button>
+            <button onclick="Addt()">+</button>
+        </div>
+        <div>
+            <span>palette</span>
+            <span id="paletteValue"></span>
+            <button onclick="Minusp()">-</button>
+            <button onclick="Addp()">+</button>
+        </div>
+        <div>
+            <button>save on server</button>
+            <button onclick="closeHtml()">close</button>
+        </div>
+
+    </div>
+<script>
+	var componentNumber = 0
+	var drawable = 0
+	var texture = 0
+	var palette = 0
+	updatedata()
+	function closeHtml() {
+        mp.trigger('closeHtml');
+		}
+	
+	function Addc() {
+		componentNumber = componentNumber + 1;
+		updatedata()
+        mp.trigger('chosehair',componentNumber,drawable,texture,palette);
+		}
+	function Minusc() {
+		componentNumber = componentNumber - 1;
+		updatedata()
+        mp.trigger('chosehair',componentNumber,drawable,texture,palette);
+		}
+		function Addd() {
+		drawable = drawable + 1;
+		updatedata()
+        mp.trigger('chosehair',componentNumber,drawable,texture,palette);
+		}
+	function Minusd() {
+		drawable = drawable - 1;
+		updatedata()
+        mp.trigger('chosehair',componentNumber,drawable,texture,palette);
+		}
+		function Addt() {
+		texture = texture + 1;
+		updatedata()
+        mp.trigger('chosehair',componentNumber,drawable,texture,palette);
+		}
+	function Minust() {
+		texture = texture - 1;
+		updatedata()
+        mp.trigger('chosehair',componentNumber,drawable,texture,palette);
+		}
+		function Addp() {
+		palette = palette + 1;
+		updatedata()
+        mp.trigger('chosehair',componentNumber,drawable,texture,palette);
+		}
+	function Minusp() {
+		palette = palette - 1;
+		updatedata()
+        mp.trigger('chosehair',componentNumber,drawable,texture,palette);
+		}
+	function updatedata() {
+		var componentNumberElement = document.getElementById("componentNumberValue");
+		var drawableElement = document.getElementById("drawableValue");
+		var textureElement = document.getElementById("textureValue");
+		var paletteElement = document.getElementById("paletteValue");
+		componentNumberElement.textContent = componentNumber;
+		drawableElement.textContent = drawable;
+		textureElement.textContent = texture;
+		paletteElement.textContent = palette;
+		}
+</script>
+</body>                  
+
+</html>

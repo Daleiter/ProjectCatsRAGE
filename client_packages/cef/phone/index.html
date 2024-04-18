@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дія у правому нижньому куті</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: none;
+        height: 100vh;
+    user-select: none;
+    }
+    .div {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 280px; /* Ширина вашого діва */
+        height: 560px; /* Висота вашого діва */
+        animation: slideIn 1s forwards; /* Анімація для зсуву елементу */
+    }
+	@keyframes slideIn {
+        from {
+            bottom: -560px; /* Початкове положення вище екрану */
+        }
+        to {
+            bottom: 0; /* Кінцеве положення внизу екрану */
+        }
+    }
+	.phone {
+        position: relative;
+    }
+
+    .phoneimg {
+        display: block;
+    }
+
+    .app1 {
+        position: absolute;
+        top: 60px; /* Змініть це значення, щоб регулювати вертикальне положення першої програми */
+        left: 30px; /* Змініть це значення, щоб регулювати горизонтальне положення першої програми */
+        width: 50px; /* Змініть це значення, щоб змінити розмір першої програми */
+    }
+	.app2 {
+        position: absolute;
+        top: 60px; /* Змініть це значення, щоб регулювати вертикальне положення першої програми */
+        left: 85px; /* Змініть це значення, щоб регулювати горизонтальне положення першої програми */
+        width: 50px; /* Змініть це значення, щоб змінити розмір першої програми */
+    }
+	.app3 {
+        position: absolute;
+        top: 60px; /* Змініть це значення, щоб регулювати вертикальне положення першої програми */
+        left: 140px; /* Змініть це значення, щоб регулювати горизонтальне положення першої програми */
+        width: 50px; /* Змініть це значення, щоб змінити розмір першої програми */
+    }
+	.app4 {
+        position: absolute;
+        top: 60px; /* Змініть це значення, щоб регулювати вертикальне положення першої програми */
+        left: 195px; /* Змініть це значення, щоб регулювати горизонтальне положення першої програми */
+        width: 50px; /* Змініть це значення, щоб змінити розмір першої програми */
+    }
+	.app5 {
+        position: absolute;
+        top: 120px; /* Змініть це значення, щоб регулювати вертикальне положення першої програми */
+        left: 30px; /* Змініть це значення, щоб регулювати горизонтальне положення першої програми */
+        width: 50px; /* Змініть це значення, щоб змінити розмір першої програми */
+    }
+	.app6 {
+        position: absolute;
+        top: 120px; /* Змініть це значення, щоб регулювати вертикальне положення першої програми */
+        left: 85px; /* Змініть це значення, щоб регулювати горизонтальне положення першої програми */
+        width: 50px; /* Змініть це значення, щоб змінити розмір першої програми */
+    }
+	.app7 {
+        position: absolute;
+        top: 120px; /* Змініть це значення, щоб регулювати вертикальне положення першої програми */
+        left: 140px; /* Змініть це значення, щоб регулювати горизонтальне положення першої програми */
+        width: 50px; /* Змініть це значення, щоб змінити розмір першої програми */
+    }
+	.appleave {
+        position: absolute;
+        top: 450px; /* Змініть це значення, щоб регулювати вертикальне положення першої програми */
+        left: 195px; /* Змініть це значення, щоб регулювати горизонтальне положення першої програми */
+        width: 50px; /* Змініть це значення, щоб змінити розмір першої програми */
+    }
+    .appphone {
+        position: absolute;
+        top: 450px; /* Змініть це значення, щоб регулювати вертикальне положення першої програми */
+        left: 30px; /* Змініть це значення, щоб регулювати горизонтальне положення першої програми */
+        width: 50px; /* Змініть це значення, щоб змінити розмір першої програми */
+    }
+	
+	.mainlist{
+	display: block;
+	}
+	.settings{
+	display: none;
+	}
+    .styling{
+	display: none;
+	}
+    .gps{
+	display: none;
+	}
+    .cars{
+	display: none;
+	}
+    .busines{
+	display: none;
+	}
+    .homes{
+	display: none;
+	}
+	.taxi{
+	display: none;
+	}
+    .phonepage{
+	display: none;
+	}
+	.delete {
+        position: absolute;
+        top: 60px; /* Змініть це значення, щоб регулювати вертикальне положення першої програми */
+        left: 30px; /* Змініть це значення, щоб регулювати горизонтальне положення першої програми */
+		font-size:50px;
+    }
+	.taxibtn {
+        position: absolute;
+        top: 350px; /* Змініть це значення, щоб регулювати вертикальне положення першої програми */
+        left: 30px; /* Змініть це значення, щоб регулювати горизонтальне положення першої програми */
+		font-size:50px;
+    }
+
+</style>
+</head>
+<body>
+    <div class="div">
+    <div class="phone">
+	<img class="phoneimg" src="main.png"> 
+    <img  class="appphone" src="images/rehber.png" onclick="setPhone()">
+	<div class="mainlist">
+	<img  class="app1" src="images/yonetim.png" onclick="setSettings()">
+	<img  class="app2" src="images/gruplar.png" onclick="setChangeStyle()"> 
+	<img  class="app3" src="images/gps.png" onclick="setGps()">
+	<img  class="app4" src="images/bank.png" onclick="setCars()">
+	<img  class="app5" src="images/bank2.png" onclick="setBusines()">
+	<img  class="app6" src="images/ev.png" onclick="setHomes()">
+	<img  class="app7" src="images/taxi.png" onclick="setTaxi()">
+	</div>
+	<div class="phonepage">
+	    <img  class="appleave" src="images/leave_house.png" onclick="setMain()">
+	</div>
+	<div class="settings">
+	    <span class="delete">settings</span>
+	    <img  class="appleave" src="images/leave_house.png" onclick="setMain()">
+	</div>
+    <div class="styling">
+        <span class="delete">styling</span>
+        <img  class="appleave" src="images/leave_house.png" onclick="setMain()">
+    </div>
+    <div class="gps">
+        <span class="delete">gps</span>
+        <img  class="appleave" src="images/leave_house.png" onclick="setMain()">
+    </div>
+    <div class="cars">
+        <span class="delete">cars</span>
+        <img  class="appleave" src="images/leave_house.png" onclick="setMain()">
+    </div>
+    <div class="busines">
+        <span class="delete">busines</span>
+        <img  class="appleave" src="images/leave_house.png" onclick="setMain()">
+    </div>
+    <div class="homes">
+        <span class="delete">homes</span>
+        <img  class="appleave" src="images/leave_house.png" onclick="setMain()">
+    </div>
+	<div class="taxi">
+        <span class="delete">Поставте метку и нажмите заказать</span>
+		<button class="taxibtn" onclick="TaxiGoTo()">Заказать</button>
+        <img  class="appleave" src="images/leave_house.png" onclick="setMain()">
+    </div>
+	</div>
+	</div>
+<script>
+	function setMain() {
+        var mainPage = document.querySelector('.mainlist');
+        mainPage.style.display = 'block';
+        var secondPage = document.querySelector('.phonepage');
+        secondPage.style.display = 'none';
+        var secondPage = document.querySelector('.settings');
+        secondPage.style.display = 'none';
+        var secondPage = document.querySelector('.styling');
+        secondPage.style.display = 'none';
+        var secondPage = document.querySelector('.gps');
+        secondPage.style.display = 'none';
+        var secondPage = document.querySelector('.cars');
+        secondPage.style.display = 'none';
+        var secondPage = document.querySelector('.busines');
+        secondPage.style.display = 'none';
+        var secondPage = document.querySelector('.homes');
+        secondPage.style.display = 'none';
+        var secondPage = document.querySelector('.taxi');
+        secondPage.style.display = 'none';
+	}
+    function setPhone() {
+        var mainPage = document.querySelector('.phonepage');
+        mainPage.style.display = 'block';
+        var secondPage = document.querySelector('.mainlist');
+        secondPage.style.display = 'none';
+        var secondPage = document.querySelector('.settings');
+        secondPage.style.display = 'none';
+        var secondPage = document.querySelector('.styling');
+        secondPage.style.display = 'none';
+        var secondPage = document.querySelector('.gps');
+        secondPage.style.display = 'none';
+        var secondPage = document.querySelector('.cars');
+        secondPage.style.display = 'none';
+        var secondPage = document.querySelector('.busines');
+        secondPage.style.display = 'none';
+        var secondPage = document.querySelector('.homes');
+        secondPage.style.display = 'none';
+        var secondPage = document.querySelector('.taxi');
+        secondPage.style.display = 'none';
+	}
+	function setSettings() {
+        var changeLogo = document.querySelector('.mainlist');
+        changeLogo.style.display = 'none';
+        var changeLogin = document.querySelector('.settings');
+        changeLogin.style.display = 'block';
+    
+	}
+    function setChangeStyle(){
+        var changeLogo = document.querySelector('.mainlist');
+        changeLogo.style.display = 'none';
+        var changeStyle = document.querySelector('.styling');
+        changeStyle.style.display = 'block';
+    }
+    function setGps(){
+        var changeLogo = document.querySelector('.mainlist');
+        changeLogo.style.display = 'none';
+        var changeGps = document.querySelector('.gps');
+        changeGps.style.display = 'block';
+    }
+    function setCars(){
+        var changeLogo = document.querySelector('.mainlist');
+        changeLogo.style.display = 'none';
+        var changeCars = document.querySelector('.cars');
+        changeCars.style.display = 'block';
+    }
+    function setBusines(){
+        var changeLogo = document.querySelector('.mainlist');
+        changeLogo.style.display = 'none';
+        var changeBusines = document.querySelector('.busines');
+        changeBusines.style.display = 'block';
+    }
+    function setHomes(){
+        var changeLogo = document.querySelector('.mainlist');
+        changeLogo.style.display = 'none';
+        var changeHomes = document.querySelector('.homes');
+        changeHomes.style.display = 'block';
+    }
+	function setTaxi(){
+        var changeLogo = document.querySelector('.mainlist');
+        changeLogo.style.display = 'none';
+        var changeTaxi = document.querySelector('.taxi');
+        changeTaxi.style.display = 'block';
+    }
+	function TaxiGoTo(){
+        mp.trigger('TaxiGoTo');
+    }
+</script>
+</body>
+</html>

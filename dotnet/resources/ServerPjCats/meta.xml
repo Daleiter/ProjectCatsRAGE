@@ -1,0 +1,4 @@
+<meta>
+	<info name="ServerPjCats" description="Recources for ServerPjCats" />
+	<script src="Debug\netcoreapp3.1\ServerPjCats.dll" />
+</meta>

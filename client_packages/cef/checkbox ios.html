@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+<style >
+   *,:before,:after {
+ box-sizing:border-box;
+ -webkit-transition: .25s ease-in-out;
+}
+#toggles {
+ width:60px;
+ margin:50px auto;
+ text-align:center;
+}
+.ios-toggle,.ios-toggle:active {
+ position:absolute;
+ top:-5000px;
+ height:0;
+ width:0;
+ opacity:0;
+ border:none;
+ outline:none;
+}
+.checkbox-label {
+ display:block;
+ position:relative;
+ padding:10px;
+ margin-bottom:20px;
+ font-size:12px;
+ line-height:16px;
+ width:100%;
+ height:36px;
+ border-radius:18px;
+ background:#f8f8f8;
+ cursor:pointer;
+}
+.checkbox-label:before {
+ content:'';
+ display:block;
+ position:absolute;
+ z-index:1;
+ line-height:34px;
+ text-indent:40px;
+ height:36px;
+ width:36px;
+ border-radius:100%;
+ top:0px;
+ left:0px;
+ right:auto;
+ background:white;
+ box-shadow:0 3px 3px rgba(0,0,0,.2),0 0 0 2px #dddddd;
+}
+.ios-toggle:checked + .checkbox-label:before {
+ left:calc(100% - 36px);
+ box-shadow:0 0 0 2px transparent,0 3px 3px rgba(0,0,0,.3);
+}
+/* GREEN CHECKBOX */
+ 
+#checkbox1 + .checkbox-label {
+ box-shadow:inset 0 0 0 0px rgba(19,191,17,1),0 0 0 2px #dddddd;
+}
+ 
+#checkbox1:checked + .checkbox-label {
+ box-shadow:inset 0 0 0 18px rgba(19,191,17,1),0 0 0 2px rgba(19,191,17,1);
+}
+ 
+#checkbox1:checked + .checkbox-label:after {
+ color:rgba(19,191,17,1);
+}
+ 
+/* RED CHECKBOX */
+ 
+#checkbox2 + .checkbox-label {
+ box-shadow:inset 0 0 0 0px #f35f42,0 0 0 2px #dddddd;
+}
+ 
+#checkbox2:checked + .checkbox-label {
+ box-shadow:inset 0 0 0 20px #f35f42,0 0 0 2px #f35f42;
+}
+ 
+#checkbox2:checked + .checkbox-label:after {
+ color:#f35f42;
+}
+ 
+/* BLUE CHECKBOX */
+ 
+#checkbox3 + .checkbox-label {
+ box-shadow:inset 0 0 0 0px #1fc1c8,0 0 0 2px #dddddd;
+}
+ 
+#checkbox3:checked + .checkbox-label {
+ box-shadow:inset 0 0 0 20px #1fc1c8,0 0 0 2px #1fc1c8;
+}
+ 
+#checkbox3:checked + .checkbox-label:after {
+ color:#1fc1c8;
+} 
+</style>
+</head>
+
+<body>
+    <div id="toggles">
+     <input type="checkbox" name="checkbox1" id="checkbox1" class="ios-toggle" checked/>
+     <label for="checkbox1" class="checkbox-label" ></label>
+    </div>
+<script>
+</script>
+</body>                  
+
+</html>

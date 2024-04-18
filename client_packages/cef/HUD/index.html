@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+<style >
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+    body {
+            font-family: 'Arial', sans-serif;
+            color: black;
+            background: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            height: 100vh;
+            width: 100vw;
+			user-select: none;
+        }
+
+        .container {
+            margin-top: 10px;
+            margin-right: 10px;
+			position: relative;
+        }
+
+
+
+.datatime{
+background-color: rgba(134, 33, 155, 50);
+padding: 3px;
+margin: 2px;
+}
+.datamoney{
+padding: 10px;
+margin: 10px;
+}
+
+.glow-on-hover {
+		margin:10px;
+		padding:5px;
+        border: none;
+        outline: none;
+        color: #fff;
+        background: #111;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;
+    }
+
+        .glow-on-hover:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        
+
+           
+
+        .glow-on-hover:before {
+            opacity: 1;
+        }
+
+        .glow-on-hover:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+    @keyframes glowing {
+        0% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 400% 0;
+        }
+
+        100% {
+            background-position: 0 0;
+        }
+    }
+.money{
+font-size: 50px;
+}
+.logo{
+height:100px;
+}
+.spanlogo{
+        position: absolute;
+        top: 30px; /* Змініть це значення, щоб регулювати вертикальне положення першої програми */
+        left: 100px; /* Змініть це значення, щоб регулювати горизонтальне положення першої програми */
+		font-size:25px;
+		font-family:Comic Sans MS;
+		text-shadow: 1px 1px 10px rgb(238, 130, 238);
+}
+.logos{
+margin-bottom: 20px;
+}
+
+</style>
+</head>
+
+<body>
+	
+    <div class="container">
+	<div class="logos">
+	<span class="spanlogo">ProjectCats</span>
+	<img class="logo" src="logo.webp">
+    </div>
+	<div class="">
+        <span class="data glow-on-hover">28 Cен</span>
+        <span class="players glow-on-hover">1/400</span>
+    </div>
+	<div class="datamoney ">
+        <span class="money glow-on-hover">10000$</span>
+    </div>
+	<div class="glow-on-hover">
+	P - Курсор <br>
+	F2 - Ремонт<br>
+	F4 - Двигатель<br>
+	F5 - Закрыть ТС<br>
+	F6 - Флип<br>
+	</div>
+    </div>
+<script>
+document.addEventListener('SendMoneyToHUD', function(event) {
+    var money = event.detail.moneyfromclient;
+	var moneySpan = document.querySelector('.money');
+    if (moneySpan) {
+        moneySpan.textContent = money + '$';
+    }
+});
+document.addEventListener('SendDataTimeToHUD', function(event) {
+    var date = event.detail.data;
+	date = date.slice(0, -3);
+	var dateSpan = document.querySelector('.data');
+    if (dateSpan) {
+        dateSpan.textContent = date;
+    }
+});
+document.addEventListener('SendCountPlayerToHUD', function(event) {
+    var countplayers = event.detail.countplayers;
+	var countplayersSpan = document.querySelector('.players');
+    if (countplayersSpan) {
+        countplayersSpan.textContent = countplayers + ' / 400';
+    }
+});
+</script>
+</body>                  
+
+</html>

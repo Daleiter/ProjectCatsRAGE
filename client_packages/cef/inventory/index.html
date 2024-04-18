@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Інвентар</title>
+</head>
+<body>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Колонка 1</th>
+      <th>Колонка 2</th>
+      <th>Колонка 3</th>
+      <th>Колонка 4</th>
+      <th>Колонка 5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="cell1"></td>
+      <td id="cell2"></td>
+      <td id="cell3"></td>
+      <td id="cell4"></td>
+      <td id="cell5"></td>
+    </tr>
+    <tr>
+      <td id="cell6"></td>
+      <td id="cell7"></td>
+      <td id="cell8"></td>
+      <td id="cell9"></td>
+      <td id="cell10"></td>
+    </tr>
+    <tr>
+      <td id="cell11"></td>
+      <td id="cell12"></td>
+      <td id="cell13"></td>
+      <td id="cell14"></td>
+      <td id="cell15"></td>
+    </tr>
+    <tr>
+      <td id="cell16"></td>
+      <td id="cell17"></td>
+      <td id="cell18"></td>
+      <td id="cell19"></td>
+      <td id="cell20"></td>
+    </tr>
+    <tr>
+      <td id="cell21"></td>
+      <td id="cell22"></td>
+      <td id="cell23"></td>
+      <td id="cell24"></td>
+      <td id="cell25"></td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  // Змінна з даними для заповнення таблиці
+  var data = [
+    "Елемент 1", "Елемент 2", "Елемент 3", "Елемент 4", "Елемент 5",
+    "Елемент 6", "Елемент 7", "Елемент 8", "Елемент 9", "Елемент 10",
+    "Елемент 11", "Елемент 12", "Елемент 13", "Елемент 14", "Елемент 15",
+    "Елемент 16", "Елемент 17", "Елемент 18", "Елемент 19", "Елемент 20",
+    "Елемент 21", "Елемент 22", "Елемент 23", "Елемент 24", "Елемент 25"
+  ];
+
+  // Функція для заповнення комірок таблиці змінною data
+  function fillTable() {
+    var cells = document.querySelectorAll('td');
+    cells.forEach((cell, index) => {
+      cell.textContent = data[index];
+    });
+  }
+
+  // Викликаємо функцію для заповнення таблиці при завантаженні сторінки
+  fillTable();
+</script>
+
+</body>
+</html>

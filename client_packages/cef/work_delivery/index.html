@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Інвентар</title>
+<style>
+  
+  body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: none;
+            color: black;
+            /*user-select: none;*/
+            
+        }
+
+        .glow-on-hover {
+            width: 220px;
+            height: 50px;
+            border: none;
+            outline: none;
+            color: #fff;
+            background: #111;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+        }
+
+        .glow-on-hover:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left:-2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        .glow-on-hover:active {
+            color: #000
+        }
+
+        .glow-on-hover:active:after {
+            background: transparent;
+        }
+
+        .glow-on-hover:hover:before {
+            opacity: 1;
+        }
+
+        .glow-on-hover:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        @keyframes glowing {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    padding: 20px;
+    height: 70%;
+    width: 70%;
+  }
+  .buttons-container {
+    position: absolute;
+    bottom: 0; /* розміщення внизу відносно container */
+    width: 100%;
+}
+.btnincon{
+  margin: 10px;
+    width: 96%;
+
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.spans-conteiner {
+    display: flex;
+    flex-direction: column; /* Розміщення елементів у стовпчик */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: calc(50% - 10px); /* ширина 50% з проміжками */
+    width: 200px;
+    box-sizing: border-box;
+    height: auto; /* Автоматична висота */
+}
+
+.spans-conteiner .glow-on-hover {
+    width: 100%;
+}
+</style>
+</head>
+<body>
+<div id="container" class="glow-on-hover container">
+    <div class="conteinerdivs"></div>
+
+  <!--<div class="spans-conteiner glow-on-hover">
+    <span class="name">Name</span>
+    <span class="owner">Растояние:</span>
+    <span class="PlayerID">Куда: </span>
+    <span class="price">Цена:</span>
+    <span class="balance">Вес:</span>
+    <button class=" glow-on-hover" onclick="mp.trigger('takeDeliveryOrder')">Взять заказ</button>
+  </div>-->
+
+  <span class="testtest">testtest</span>
+  <div class="buttons-container">
+    <button class="btnincon glow-on-hover" onclick="mp.trigger('rentDeliveryCar')">Арендовать/Сдать транспорт</button>
+    <button class="btnincon glow-on-hover" onclick="mp.trigger('cancelDelivery')">Отменить Заказ</button>
+    <button class="btnincon glow-on-hover" onclick="mp.trigger('closeDelivery')">Закрыть</button>
+  </div>
+  
+</div>
+<script>
+    document.addEventListener('SenDeliveryListToHUD', function (event) {
+        var jsonData = event.detail.deliveryList;
+        const data = JSON.parse(jsonData);
+        const container = document.querySelector('.conteinerdivs');
+	 container.innerHTML = '';
+
+        // Перебираємо кожен елемент у масиві даних і створюємо відповідну структуру для кожного
+        data.forEach(item => {
+            // Створюємо новий елемент div
+            const divItem = document.createElement('div');
+            // Додаємо до нього клас "spans-conteiner" і "glow-on-hover"
+            divItem.classList.add('spans-conteiner', 'glow-on-hover');
+
+            // Створюємо елементи span для кожного поля даних
+            const spanName = document.createElement('span');
+            const spanOwner = document.createElement('span');
+            const spanPlayerID = document.createElement('span');
+            const spanPrice = document.createElement('span');
+            const spanBalance = document.createElement('span');
+
+            // Встановлюємо текст для кожного елементу span на основі даних з масиву
+            spanName.textContent = `Name: ${item.Name}`;
+            spanOwner.textContent = `Растояние: ${item.Position.x}`;
+            spanPlayerID.textContent = `Куда: ${item.Id}`;
+            spanPrice.textContent = `Цена: ${item.Price}`;
+            spanBalance.textContent = `Вес: ${item.Height}`;
+
+            // Створюємо кнопку
+            const button = document.createElement('button');
+            // Встановлюємо текст кнопки
+            button.textContent = 'Взять заказ';
+            // Додаємо клас "glow-on-hover"
+            button.classList.add('glow-on-hover');
+            // Додаємо обробник події click для кнопки
+            button.addEventListener('click', function () {
+                // Ваш код для обробки події натискання кнопки
+                // Наприклад, ви можете викликати функцію mp.trigger('takeDeliveryOrder')
+                // Або виконати будь-яку іншу логіку
+                mp.trigger('takeDeliveryOrder', item.Id);
+            });
+
+            // Додаємо створені елементи span і кнопку до елементу divItem
+            divItem.appendChild(spanName);
+            divItem.appendChild(spanOwner);
+            divItem.appendChild(spanPlayerID);
+            divItem.appendChild(spanPrice);
+            divItem.appendChild(spanBalance);
+            divItem.appendChild(button);
+
+            // Додаємо елемент divItem до контейнера
+            container.appendChild(divItem);
+        });
+    });
+
+</script>
+
+</body>
+</html>
